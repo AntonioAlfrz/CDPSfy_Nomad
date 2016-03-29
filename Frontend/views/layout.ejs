@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CDPSfy</title>
+    <link rel="icon" href="/favicon.png" type="image/png" >
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/default.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/component.css" />
+
+    <link rel="stylesheet"type="text/css"  href="/coverflow/jquery.flipster.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/set2.css" />
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+    <script src="/javascripts/modernizr.custom.js"></script>
+    <meta name="viewport" content="width=device-width" />
+   
+
+
+
+  </head>
+  <body>
+   <button id="showLeft" class="wow rubberBand"><img style="z-index:999;" src="/images/menu.png"></button>
+      <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+      <h3><lll>-----</lll> Menu</h3>
+      <a href="/tracks">Tracks   ♪</a>
+        <% if (session.user) {%>
+      <a href="/tracks/new">Upload     ✎</a>
+      <a href="/user/playlists">Playlists   ♡</a>      
+      <a href="/user/profile">Profile   ♙</a>
+      <a href="/logout">Sign out   ✖</a>
+       <% } else {%>
+      <a href="/user/login">Sign in   ☮</a>
+      <a href="/user/new">Sign up   ✚</a>
+      <% } %>
+ 
+    </nav>
+    <% if(session.user){%>
+    <h3 id="arriba"><%= session.user.name %></h3>
+    <%}%>
+  	<div id="header"><br>
+    <!-- <br><br> -->
+    	<h1 id="titulo2"><a href="/">C D P S f y</a></h1>
+  	</div>
+ <!--    <div id="container">
+	    <div id="nav-bar">
+	    	<ul>
+	    		<li><a href="/tracks">My tracks</a></li>
+	    		<li><a href="/tracks/new">Upload new track</a></li>
+         
+	    	</ul>
+	    </div> -->
+	    <div id="container-body"><%- body %></div>
+    </div>
+      <script src="/javascripts/classie.js"></script>
+    <script>
+      var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+
+        body = document.body;
+
+      showLeft.onclick = function() {
+        classie.toggle( this, 'active' );
+        classie.toggle( menuLeft, 'cbp-spmenu-open' );
+        disableOther( 'showLeft' );
+}
+
+      function disableOther( button ) {
+        if( button !== 'showLeft' ) {
+          classie.toggle( showLeft, 'disabled' );
+
+        }
+
+      }
+    </script>
+   <script src="/javascripts/wow.min.js"></script>
+              <script>
+              new WOW().init();
+
+
+              //console.log("<%=JSON.stringify(session.ip) || []%>")
+    
+
+
+
+              </script>
+
+ 
+  </body>
+</html>

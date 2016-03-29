@@ -1,0 +1,57 @@
+<form action="/tracks"  method="post" enctype="multipart/form-data">  
+<div class="wow bounceInUp formulario">
+  <label  class="upload_field"><b>Upload a new track:</b></label><br><br>
+<span class="input input--nariko">
+    <input class="input__field input__field--nariko" name="nombre" type="text" id="input-21" />
+    <label class="input__label input__label--nariko" for="input-21">
+      <span class="input__label-content input__label-content--nariko">Name</span>
+    </label>
+  </span><br>
+
+
+    <label for="caratula" class="upload_field">File:</label><br>
+  <input class="upload_field" type="file" accept=".mp3,.wav,.ogg" name="track"/><br><br>
+  <label for="caratula" class="upload_field">Cover:</label><br>
+  <input class="upload_field" type="file" accept="image/*" name="caratula"/><br><br>
+
+
+  <button  type="submit" class="btn btn-1 btn-1d">Upload</button><br><br>
+  <span class="hint upload_field">Supported files: MP3, Wav, and Ogg</span>
+  </div>
+</form>
+<script src="/javascripts/classie.js"></script>
+    <script>
+      (function() {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+          (function() {
+            // Make sure we trim BOM and NBSP
+            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+            String.prototype.trim = function() {
+              return this.replace(rtrim, '');
+            };
+          })();
+        }
+
+        [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+          // in case the input is already filled..
+          if( inputEl.value.trim() !== '' ) {
+            classie.add( inputEl.parentNode, 'input--filled' );
+          }
+
+          // events:
+          inputEl.addEventListener( 'focus', onInputFocus );
+          inputEl.addEventListener( 'blur', onInputBlur );
+        } );
+
+        function onInputFocus( ev ) {
+          classie.add( ev.target.parentNode, 'input--filled' );
+        }
+
+        function onInputBlur( ev ) {
+          if( ev.target.value.trim() === '' ) {
+            classie.remove( ev.target.parentNode, 'input--filled' );
+          }
+        }
+      })();
+    </script>

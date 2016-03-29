@@ -1,0 +1,13 @@
+
+<div class="wow bounce total">
+<div class="interna pp">
+<h2 id="playlists">Playlists</h2>
+<a href="/user/playlists/new" class="opt">Add a new playlist ✚</a>
+
+
+<%for (var p in playlists) {%>
+
+<a href="/user/playlists/<%=p%>"><p class="plist"><%=playlists[p].name%><right> ▶ </right></p>
+</a>
+<%}%>
+</div></div>

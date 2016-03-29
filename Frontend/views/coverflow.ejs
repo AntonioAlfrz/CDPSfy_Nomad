@@ -1,0 +1,26 @@
+<h1 id="cft"><%=title%></h1>
+<%if (title != 'All tracks'){%>
+<form method="post" action="/user/playlists/delete/<%=id%>?_method=delete"> <h2 class="centered"><span class="nonee"><a  class="opt" href="/user/playlists/edit/<%=id%>">Edit ✎</a>
+<button class="nonee" input="submit"> <span class="opt"> Delete ✖</span></button></form></span>
+
+</h2>
+<%}%>
+
+
+
+<div id="covers"  class="my-flipster wow fadeInUp " >
+  <ul>
+  <%for (var t in tracks) {%>
+    <li tabindex="0"><a href='/tracks/<%=tracks[t]._id%>'><img class="fotooo" src="<%=url%><%= tracks[t].caratula?   'images-container/'+tracks[t]._id+'.'+tracks[t].caratula:'images/caratula.png'%>"><p class="songtitle"><%=tracks[t].name%></p></a></li>
+    <%}%>
+  </ul>
+</div>
+
+ <script src="/coverflow/jquery.min.js"></script>
+<script src="/coverflow/jquery.flipster.min.js"></script>
+<script>
+  var myFlipster = $('.my-flipster').flipster({  loop: true});
+  window.onload = function(){
+    document.getElementById('covers').scrollIntoView();
+  }
+</script>

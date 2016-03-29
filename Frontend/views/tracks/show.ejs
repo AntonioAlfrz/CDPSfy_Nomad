@@ -1,0 +1,16 @@
+<div align="center" class="wow rollIn total">
+<div class="track_playing">
+
+	<img class = "caratulashow" src="<%=url%><%= track.caratula? 'images-container/'+track._id+'.'+track.caratula : 'images/caratula.png'%>">
+
+	<p><%=track.name%></p>
+	<audio src="<%=url%>music-container/<%=track._id%>.<%=track.ext%>" type="audio/mpeg" controls="controls"></audio>
+ <% if (session.user) {%>
+	<form method="post" action="/tracks/<%=track.id%>?_method=delete">
+	    <button id="elimina" type="submit" onClick="return confirm('Delete: <%=track.name%>. Are you sure? ');">
+	      <img class="wow rubberBand delete" src="/images/delete.png">
+	    </button>
+  	</form>
+ <% } %>
+</div>
+</div>

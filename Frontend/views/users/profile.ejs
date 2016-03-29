@@ -1,0 +1,17 @@
+<div align="center" class="total">
+<div class="inner wow zoomInUp">
+<img  width=200 src="/images/prof.png">
+<h1>
+<span>
+<%=session.user.name%></span>
+</h1>
+<h4><a  class="opt" href="/user/playlists">My playlists  ♡</a></h4>
+
+<form method="post" action="/user/delete?_method=delete">
+<h4><button class="nonee opt" input="submit"  onClick="return confirm(' Are you sure? ');"><!-- <a class="opt" href="/user/delete"> -->Delete user   ✖<!-- </a> --></button></h4>
+</form>
+
+<h4 ><a  class="opt" href="/user/edit">Change Password  ✎</a></h4>
+
+</div>
+</div>

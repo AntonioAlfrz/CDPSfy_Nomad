@@ -1,0 +1,22 @@
+<h1><%=title%></h1>
+<%if (title != 'All tracks'){%>
+ <h2 class="centered"><span class="nonee"><a  class="opt" href="/user/playlists/edit/<%=id%>">Edit ✎</a>
+<form method="post" action="/user/playlists/delete/<%=id%>?_method=delete"  onClick="return confirm(' Are you sure? ');"><button class="nonee" input="submit"> <span class="opt"> Delete ✖</span></button></form></span>
+
+</h2>
+<%}%>
+<div class="interna ooo">
+
+
+
+<%for (var t in tracks) {%>
+
+<div class="track track_gallery">
+
+	<a href='/tracks/<%=tracks[t]._id%>'><img class="wow zoomIn galimg" src="<%=url%><%= tracks[t].caratula?   'media/'+tracks[t]._id+'.'+tracks[t].caratula:'images/caratula.png'%>">
+
+	<p class="songtitle"><%=tracks[t].name%></p>
+</a>
+</div>
+<%}%>
+</p></div>
