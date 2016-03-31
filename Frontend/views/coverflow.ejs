@@ -11,7 +11,7 @@
 <div id="covers"  class="my-flipster wow fadeInUp " >
   <ul>
   <%for (var t in tracks) {%>
-    <li tabindex="0"><a href='/tracks/<%=tracks[t]._id%>'><img class="fotooo" src="<%=url%><%= tracks[t].caratula?   'images-container/'+tracks[t]._id+'.'+tracks[t].caratula:'images/caratula.png'%>"><p class="songtitle"><%=tracks[t].name%></p></a></li>
+    <li tabindex="0"><a href='/tracks/<%=tracks[t]._id%>'><img class="fotooo" src="<%=url%><%='images-container/'+ tracks[t].caratula? tracks[t]._id+'.'+tracks[t].caratula:'caratula.png'%>"><p class="songtitle"><%=tracks[t].name%></p></a></li>
     <%}%>
   </ul>
 </div>
