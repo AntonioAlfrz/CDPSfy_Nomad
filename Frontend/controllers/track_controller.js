@@ -6,7 +6,7 @@ var needle = require('needle');
 var STORAGE_PATH = "https://cdps.blob.core.windows.net/";
 //Cambiar para desarrollo en local o para despliegue
 
-var apiserver = "http://haproxy.service.consul:3000/";
+var apiserver = "http://"+process.env.APIURL+"/";
 exports.apiserver = apiserver;
 
 //Carga la canción a partir de la URL

@@ -4,6 +4,7 @@ var multer = require("multer");
 var azure = require('azure-storage');
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
+// Environment, Account + Access_key
 var blobSvc = azure.createBlobService();
 
 blobSvc.createContainerIfNotExists('music-container', {publicAccessLevel : 'blob'}, function(error, result, response){

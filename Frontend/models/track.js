@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 //Cambiar para desarrollo en local o para despliegue
-var mongoUrl = 'mongodb://mongo.service.consul:27017/tracks';
+var mongoUrl = 'mongodb://'+process.env.MONGOURL+'/tracks';
 // var mongoUrl = 'mongodb://localhost:27017/tracks'
 
 
