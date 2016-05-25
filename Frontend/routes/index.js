@@ -12,6 +12,14 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
+router.get('/health',function(req, res) {
+  require('needle').get(process.env.APIURL, function(error, response) {
+    if (!error && response.statusCode == 200){
+      res.send("API checked");
+    }
+  });
+});
+
 router.param('trackId', trackController.load)
 
 router.param('userId', userController.load)
@@ -37,7 +45,7 @@ router.get('/user/list',userController.list)
 router.post('/user/login', userController.login)
 
 router.delete('/user/delete', sessionController.loginRequired, userController.elimina, sessionController.destroy)
- 
+
 router.get('/user/edit',sessionController.loginRequired, userController.changePassword)
 
 router.put('/user/edit', userController.update)
