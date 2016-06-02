@@ -1,7 +1,7 @@
 <div align="center" class="wow rollIn total">
 <div class="track_playing">
 
-	<img class = "caratulashow" src="<%=url%><%= track.caratula? 'images-container/'+track._id+'.'+track.caratula : 'images/caratula.png'%>">
+	<img class = "caratulashow" src="<%=url%><%= track.caratula? 'images-container/'+track._id+'.'+track.caratula : 'images-container/caratula.png'%>">
 
 	<p><%=track.name%></p>
 	<audio src="<%=url%>music-container/<%=track._id%>.<%=track.ext%>" type="audio/mpeg" controls="controls"></audio>
